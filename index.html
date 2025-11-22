@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCO 5 Tahun: On-Premise Only vs Hybrid (Perikanan Laut)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; background: #f7f9fc; color: #333; }
+    h1, h2 { color: #1e3a8a; }
+    table { width: 100%; border-collapse: collapse; margin: 25px 0; background: white; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: right; }
+    th { background: #1e3a8a; color: white; text-align: left; }
+    tr:nth-child(even) { background: #f8fafc; }
+    .total { font-weight: bold; background: #e0f2fe !important; }
+    .hemat { background: #dcfce7 !important; font-weight: bold; color: #166534; }
+    canvas { max-width: 100%; margin: 40px 0; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .container { max-width: 1200px; margin: auto; }
+    .footer { margin-top: 50px; text-align: center; color: #666; font-size: 0.9em; }
+    button { padding: 10px 20px; background: #1e3a8a; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    button:hover { background: #172554; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Total Cost of Ownership (TCO) 5 Tahun<br>
+      <small>Perusahaan Perikanan Laut Skala Menengah (2026–2030)</small>
+  </h1>
+  <p><strong>Kesimpulan utama:</strong> Pendekatan <strong>Hybrid</strong> (development on-premise + cloud + colocation DR) 
+     <span style="color:#166534; font-weight:bold;">hemat Rp 13,7 miliar (58%)</span> dibandingkan full On-Premise dalam 5 tahun.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Kategori Biaya</th>
+        <th>Tahun 1</th><th>Tahun 2</th><th>Tahun 3</th><th>Tahun 4</th><th>Tahun 5</th><th>Total 5 Tahun</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td colspan="7" style="background:#1e3a8a;color:white;font-weight:bold;">A. On-Premise Only</td></tr>
+      <tr><td>CapEx Hardware</td><td>1.200</td><td>300</td><td>800</td><td>600</td><td>1.000</td><td>4.000</td></tr>
+      <tr><td>CapEx Infrastruktur</td><td>1.500</td><td>0</td><td>500</td><td>0</td><td>600</td><td>2.600</td></tr>
+      <tr><td>Internet Dedicated</td><td>240</td><td>264</td><td>290</td><td>319</td><td>351</td><td>1.464</td></tr>
+      <tr><td>Listrik + Pendingin</td><td>480</td><td>528</td><td>650</td><td>715</td><td>787</td><td>3.160</td></tr>
+      <tr><td>Gaji IT (3 orang)</td><td>540</td><td>594</td><td>653</td><td>719</td><td>791</td><td>3.297</td></tr>
+      <tr><td>Maintenance & Support</td><td>150</td><td>165</td><td>182</td><td>200</td><td>220</td><td>917</td></tr>
+      <tr><td>Downtime & Recovery (rugi bisnis)</td><td>500</td><td>800</td><td>1.200</td><td>1.500</td><td>2.000</td><td>6.000</td></tr>
+      <tr class="total"><td><strong>Total On-Premise Only</strong></td>
+          <td><strong>5.610</strong></td><td><strong>3.651</strong></td><td><strong>4.275</strong></td><td><strong>4.053</strong></td><td><strong>5.749</strong></td>
+          <td><strong>23.338</strong></td></tr>
+
+      <tr><td colspan="7" style="background:#166534;color:white;font-weight:bold;">B. Hybrid (Rekomendasi)</td></tr>
+      <tr><td>CapEx Dev Environment on-prem</td><td>600</td><td>0</td><td>0</td><td>0</td><td>300</td><td>900</td></tr>
+      <tr><td>Cloud Core (ERP, IoT, Traceability)</td><td>450</td><td>540</td><td>650</td><td>780</td><td>936</td><td>3.356</td></tr>
+      <tr><td>Colocation ¼ rack DR</td><td>240</td><td>264</td><td>290</td><td>319</td><td>351</td><td>1.464</td></tr>
+      <tr><td>Internet Kantor</td><td>120</td><td>132</td><td>145</td><td>160</td><td>176</td><td>733</td></tr>
+      <tr><td>Gaji IT (2 orang)</td><td>360</td><td>396</td><td>436</td><td>479</td><td>527</td><td>2.198</td></tr>
+      <tr><td>Managed Service & Support</td><td>120</td><td>132</td><td>145</td><td>160</td><td>176</td><td>733</td></tr>
+      <tr><td>Downtime (hampir nol)</td><td>50</td><td>50</td><td>50</td><td>50</td><td>50</td><td>250</td></tr>
+      <tr class="total"><td><strong>Total Hybrid</strong></td>
+          <td><strong>1.940</strong></td><td><strong>1.514</strong></td><td><strong>1.716</strong></td><td><strong>1.948</strong></td><td><strong>2.516</strong></td>
+          <td><strong>9.634</strong></td></tr>
+
+      <tr class="hemat"><td><strong>Hemat dengan Hybrid</strong></td>
+          <td><strong>3.670</strong></td><td><strong>2.137</strong></td><td><strong>2.559</strong></td><td><strong>2.105</strong></td><td><strong>3.233</strong></td>
+          <td><strong>13.704</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h2>Grafik Perbandingan Biaya Tahunan (dalam Miliar Rupiah)</h2>
+  <canvas id="tcoChart"></canvas>
+
+  <p style="text-align:center;">
+    <button onclick="downloadChart()">Download Grafik sebagai PNG</button>
+  </p>
+
+  <div class="footer">
+    Dibuat November 2025 • Berdasarkan harga DCI Indonesia, NTT, AWS/Alibaba Cloud region Jakarta & pengalaman proyek perikanan serupa<br>
+    Break-even Hybrid biasanya tercapai bulan ke-18–22
+  </div>
+</div>
+
+<script>
+  const ctx = document.getElementById('tcoChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
+      datasets: [
+        {
+          label: 'On-Premise Only (Miliar Rp)',
+          data: [5.610, 3.651, 4.275, 4.053, 5.749],
+          backgroundColor: 'rgba(239, 68, 68, 0.7)',
+          borderColor: '#b91c1c',
+          borderWidth: 1
+        },
+        {
+          label: 'Hybrid (Miliar Rp)',
+          data: [1.940, 1.514, 1.716, 1.948, 2.516],
+          backgroundColor: 'rgba(34, 197, 94, 0.7)',
+          borderColor: '#166534',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: { display: true, text: 'Perbandingan Biaya Tahunan & Total 5 Tahun', font: {size: 18} },
+        datalabels: {
+          anchor: 'end',
+          align: 'top',
+          formatter: (value) => value.toLocaleString('id-ID') + ' jt',
+          font: { weight: 'bold' }
+        }
+      },
+      scales: {
+        y: { beginAtZero: true, ticks: { callback: value => value + ' jt' } }
+      }
+    },
+    plugins: [ChartDataLabels]
+  });
+
+  // Tambahan garis total kumulatif
+  chart.data.datasets.push({
+    label: 'Total Kumulatif On-Premise',
+    data: [5.610, 9.261, 13.536, 17.589, 23.338],
+    type: 'line',
+    borderColor: '#b91c1c',
+    backgroundColor: 'transparent',
+    borderWidth: 3,
+    pointBackgroundColor: '#b91c1c',
+    tension: 0.2
+  });
+  chart.data.datasets.push({
+    label: 'Total Kumulatif Hybrid',
+    data: [1.940, 3.454, 5.170, 7.118, 9.634],
+    type: 'line',
+    borderColor: '#166534',
+    backgroundColor: 'transparent',
+    borderWidth: 3,
+    pointBackgroundColor: '#166534',
+    tension: 0.2
+  });
+  chart.update();
+
+  function downloadChart() {
+    const link = document.createElement('a');
+    link.download = 'TCO_Perikanan_Hybrid_vs_OnPrem_5Tahun.png';
+    link.href = chart.toBase64Image();
+    link.click();
+  }
+</script>
+</body>
+</html>
