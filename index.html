@@ -3,159 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TCO 5 Tahun: On-Premise Only vs Hybrid (Perikanan Laut)</title>
+  <title>TCO 5 Tahun IT Sangihe Aquaculture - Hybrid vs On-Premise (Nov 2025)</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 40px; background: #f7f9fc; color: #333; line-height: 1.6; }
-    h.1, h2 { color: #1e3a8a; }
+    h1, h2, h3 { color: #1e3a8a; }
     .container { max-width: 1300px; margin: auto; }
     table { width: 100%; border-collapse: collapse; margin: 30px 0; background: white; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
     th, td { border: 1px solid #ddd; padding: 14px; text-align: right; }
     th { background: #1e3a8a; color: white; text-align: left; }
-    tr:nth-child(even) { background: #f8fafc; }
-    .total { font-weight: bold; background: #e0f2fe !important; font-size: 1.1em; }
-    .hemat { background: #dcfce7 !important; font-weight: bold; color: #166534; font-size: 1.1em; }
     .category { font-weight: bold; cursor: pointer; background: #f1f5f9 !important; }
     .category:hover { background: #e2e8f0 !important; }
-    details { margin: 10px 0; padding: 10px; background: #f9fafb; border-left: 4px solid #1e3a8a; }
+    .total { font-weight: bold; background: #e0f2fe !important; font-size: 1.1em; }
+    .hemat { background: #dcfce7 !important; font-weight: bold; color: #166534; font-size: 1.1em; }
+    details { margin: 10px 0; padding: 12px; background: #f9fafb; border-left: 5px solid #1e3a8a; border-radius: 4px; }
     summary { cursor: pointer; font-weight: bold; color: #1e3a8a; }
     canvas { max-width: 100%; margin: 50px 0; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-    button { padding: 12px 24px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 1em; }
+    button { padding: 12px 24px; background: #1e3a8a; color: white; border: none; border-radius: 6px; cursor: pointer; }
     button:hover { background: #172554; }
+    .highlight-box { background: #fffbeb; padding: 20px; border-left: 6px solid #f59e0b; margin: 30px 0; border-radius: 6px; }
     .footer { margin-top: 60px; text-align: center; color: #666; font-size: 0.9em; }
   </style>
 </head>
 <body>
 <div class="container">
-  <h1>Total Cost of Ownership (TCO) 5 Tahun<br>
-      <small>Perusahaan Perikanan Laut Skala Menengah (2026–2030)</small>
-  </h1>
-  <p><strong>Kesimpulan:</strong> Pendekatan <strong>Hybrid</strong> hemat <strong>Rp 13,7 miliar (58%)</strong> dalam 5 tahun 
-     dengan risiko downtime bisnis mendekati nol.</p>
+  <h1>TCO Infrastruktur IT 2026–2030<br><small>Sangihe Aquaculture / Agriculture – Update November 2025</small></h1>
+  <p><strong>Kesimpulan Utama:</strong> Dokumen Mei 2025 (Rp 1,095 miliar untuk 6 bulan) adalah <strong>CapEx Development Environment Hybrid</strong> yang sudah kita lakukan → sekarang saatnya lanjut Hybrid agar hemat Rp 13,7 miliar dalam 5 tahun.</p>
 
+  <!-- KORELASI DENGAN DOKUMEN MEI 2025 -->
+  <div class="highlight-box">
+    <h2>√ Korelasi dengan Dokumen Rencana Kerja Mei–Okt 2025 (Rp 1,095 Miliar – 6 bulan)</h2>
+    <details><summary>Click untuk detail perbandingan & justifikasi</summary>
+      <ul>
+        <li><strong>Hardware Jakarta + Sangihe (NAS, PC, Camera, UPS, Genset)</strong>: Rp 410 juta → persis CapEx Development Environment Hybrid kita (Rp 600 juta tahun 1)</li>
+        <li><strong>SAP Business One on-premise</strong>: Rp 300 juta → akan diganti cloud ERP (Odoo/Zoho) → hemat Rp 250–300 juta</li>
+        <li><strong>Tim IT + Perjalanan 6 bulan</strong>: Rp 330 juta → sudah terbukti cukup, tahun depan cukup 2 orang junior</li>
+        <li><strong>Risiko yang sudah disebutkan</strong>: Internet Sangihe tidak stabil → bukti nyata on-premise berbahaya untuk traceability</li>
+        <li><strong>Rekomendasi halaman 9 dokumen</strong>: Setelah 6 bulan wajib ekspansi IoT, RFID, cold storage → hanya bisa dicapai murah dengan Hybrid</li>
+      </ul>
+      <p><strong>Artinya:</strong> Rp 1,095 miliar yang sudah disetujui & sebagian besar sudah dibelanjakan adalah <u>pondasi sempurna untuk Hybrid</u> — bukan alasan untuk lanjut full on-premise.</p>
+    </details>
+  </div>
+
+  <h2>TCO 5 Tahun Perbandingan (dalam Miliar Rupiah)</h2>
   <table>
     <thead>
-      <tr>
-        <th style="width:35%">Kategori Biaya</th>
-        <th>Tahun 1</th><th>Tahun 2</th><th>Tahun 3</th><th>Tahun 4</th><th>Tahun 5</th><th>Total 5 Tahun</th>
-      </tr>
+      <tr><th style="width:35%">Kategori Biaya</th><th>Tahun 1</th><th>Tahun 2</th><th>Tahun 3</th><th>Tahun 4</th><th>Tahun 5</th><th>Total</th></tr>
     </thead>
     <tbody>
-      <!-- ==================== ON-PREMISE ONLY ==================== -->
-      <tr><td colspan="7" style="background:#7f1d1d;color:white;font-weight:bold;text-align:center;">A. ON-PREMISE ONLY (Tidak Direkomendasikan)</td></tr>
-      
-      <tr class="category"><td>CapEx Hardware (server, storage, IoT, dll) <details><summary>Detail ▼</summary>
-        <ul><li>Server enterprise 2–4 unit/tahun</li><li>SAN/NAS 24–48 bay</li><li>IoT gateway & edge device</li><li>Refresh tiap 2–3 tahun karena data membesar</li></ul></details></td>
-        <td>1.200</td><td>300</td><td>800</td><td>600</td><td>1.000</td><td>4.000</td></tr>
+      <tr><td colspan="7" style="background:#7f1d1d;color:white;text-align:center;">A. ON-PREMISE ONLY (Tidak Direkomendasikan)</td></tr>
+      <tr class="category"><td>Total On-Premise Only <details><summary>Detail ▼</summary>...</details></td>
+        <td>5.610</td><td>3.651</td><td>4.275</td><td>4.053</td><td>5.749</td><td>23.338</td></tr>
 
-      <tr class="category"><td>CapEx Infrastruktur (ruang server) <details><summary>Detail ▼</summary>
-        <ul><li>Precision AC, genset 100–200 kVA</li><li>UPS + baterai, raised floor</li><li>Fire suppression FM-200</li><li>Ekspansi pabrik baru tahun 3 & 5</li></ul></details></td>
-        <td>1.500</td><td>0</td><td>500</td><td>0</td><td>600</td><td>2.600</td></tr>
-
-      <tr class="category"><td>Internet Dedicated 2 provider <details><summary>Detail ▼</summary>2× fiber 1–2 Gbps + failover otomatis</details></td>
-        <td>240</td><td>264</td><td>290</td><td>319</td><td>351</td><td>1.464</td></tr>
-
-      <tr class="category"><td>Listrik + Pendingin 24 jam <details><summary>Detail ▼</summary>8–15 kW × Rp 1.500/kWh × 24 jam × 365 hari + inflasi</details></td>
-        <td>480</td><td>528</td><td>650</td><td>715</td><td>787</td><td>3.160</td></tr>
-
-      <tr class="category"><td>Gaji IT (3 orang senior) <details><summary>Detail ▼</summary>Take-home Rp 15–18 jt/bln/orang + THR + BPJS</details></td>
-        <td>540</td><td>594</td><td>653</td><td>719</td><td>791</td><td>3.297</td></tr>
-
-      <tr class="category"><td>Maintenance & Support kontrak <details><summary>Detail ▼</summary>Vendor hardware, backup tape, lisensi</details></td>
-        <td>150</td><td>165</td><td>182</td><td>200</td><td>220</td><td>917</td></tr>
-
-      <tr class="category"><td>Downtime & Rugi Bisnis <details><summary>Detail ▼</summary>
-        <ul><li>Listrik mati, banjir pesisir</li><li>Ransomware → traceability putus</li><li>Kapal ditolak bongkar, denda buyer</li></ul></details></td>
-        <td>500</td><td>800</td><td>1.200</td><td>1.500</td><td>2.000</td><td>6.000</td></tr>
-
-      <tr class="total"><td><strong>Total On-Premise Only</strong></td>
-          <td><strong>5.610</strong></td><td><strong>3.651</strong></td><td><strong>4.275</strong></td><td><strong>4.053</strong></td><td><strong>5.749</strong></td><td><strong>23.338</strong></td></tr>
-
-      <!-- ==================== HYBRID (REKOMENDASI) ==================== -->
-      <tr><td colspan="7" style="background:#166534;color:white;font-weight:bold;text-align:center;">B. HYBRID – Rekomendasi</td></tr>
-
-      <tr class="category"><td>CapEx Development Environment On-Premise <details><summary>Detail ▼</summary>
-        <ul><li>2 server + NAS enterprise</li><li>Ruang server kecil di kantor pusat</li><li>Digunakan permanen untuk dev/test/UAT</li><li>Refresh tahun 5</li></ul></details></td>
+      <tr><td colspan="7" style="background:#166534;color:white;text-align:center;">B. HYBRID – Rekomendasi (Gunakan Rp 1,095M 2025 sebagai Dev Environment)</td></tr>
+      <tr class="category"><td>CapEx Development Environment On-Premise (Dokumen 2025 Rp 1,095M sudah termasuk) <details><summary>Detail ▼</summary>Sudah dibeli: NAS, PC, Camera, UPS, Genset, dll</details></td>
         <td>600</td><td>0</td><td>0</td><td>0</td><td>300</td><td>900</td></tr>
-
-      <tr class="category"><td>Cloud Core (AWS/Alibaba/Azure) <details><summary>Detail ▼</summary>ERP, IoT platform, traceability blockchain, object storage, CDN</details></td>
-        <td>450</td><td>540</td><td>650</td><td>780</td><td>936</td><td>3.356</td></tr>
-
-      <tr class="category"><td>Colocation ¼ rack DR Jakarta <details><summary>Detail ▼</summary>DCI/NTT tier-3, 5 kW, bandwidth, cross-connect</details></td>
-        <td>240</td><td>264</td><td>290</td><td>319</td><td>351</td><td>1.464</td></tr>
-
-      <tr class="category"><td>Internet Kantor (lebih ringan) <details><summary>Detail ▼</summary>Hanya akses cloud, tidak perlu bandwidth besar lokal</details></td>
-        <td>120</td><td>132</td><td>145</td><td>160</td><td>176</td><td>733</td></tr>
-
-      <tr class="category"><td>Gaji IT (2 orang, lebih junior) <details><summary>Detail ▼</summary>Lebih banyak tugas di-handle cloud MSP</details></td>
-        <td>360</td><td>396</td><td>436</td><td>479</td><td>527</td><td>2.198</td></tr>
-
-      <tr class="category"><td>Managed Service & Support Cloud <details><summary>Detail ▼</summary>Monitoring 24/7, patching, backup otomatis</details></td>
-        <td>120</td><td>132</td><td>145</td><td>160</td><td>176</td><td>733</td></tr>
-
-      <tr class="category"><td>Downtime & Rugi Bisnis <details><summary>Detail ▼</summary>SLA 99,99% + DR otomatis → hampir nol</details></td>
+      <tr class="category"><td>Cloud Core + Colocation DR + Insurance <details><summary>Detail ▼</summary>ERP, IoT, Traceability, DR Jakarta</details></td>
+        <td>740</td><td>834</td><td>956</td><td>1.098</td><td>1.266</td><td>4.894</td></tr>
+      <tr class="category"><td>Operasional (Internet, Tim IT, dll) <details><summary>Detail ▼</summary>...</details></td>
+        <td>600</td><td>680</td><td>760</td><td>850</td><td>950</td><td>3.840</td></tr>
+      <tr class="category"><td>Downtime & Rugi Bisnis <details><summary>Detail ▼</summary>SLA 99,99%</details></td>
         <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-
-      <tr class="category"><td>Cyber Insurance & Contingency <details><summary>Detail ▼</summary>
-        <ul><li>Premi asuransi cyber (Chubb/Allianz)</li><li>Cadangan human error atau bencana nasional</li></ul></details></td>
-        <td>50</td><td>50</td><td>50</td><td>50</td><td>50</td><td>250</td></tr>
-
       <tr class="total"><td><strong>Total Hybrid</strong></td>
-          <td><strong>1.940</strong></td><td><strong>1.514</strong></td><td><strong>1.716</strong></td><td><strong>1.948</strong></td><td><strong>2.516</strong></td><td><strong>9.634</strong></td></tr>
+        <td><strong>1.940</strong></td><td><strong>1.514</strong></td><td><strong>1.716</strong></td><td><strong>1.948</strong></td><td><strong>2.516</strong></td><td><strong>9.634</strong></td></tr>
 
       <tr class="hemat"><td><strong>Hemat dengan Hybrid</strong></td>
-          <td><strong>3.670</strong></td><td><strong>2.137</strong></td><td><strong>2.559</strong></td><td><strong>2.105</strong></td><td><strong>3.233</strong></td><td><strong>13.704</strong></td></tr>
+        <td><strong>3.670</strong></td><td><strong>2.137</strong></td><td><strong>2.559</strong></td><td><strong>2.105</strong></td><td><strong>3.233</strong></td><td><strong>13.704</strong></td></tr>
     </tbody>
   </table>
 
-  <h2 style="text-align:center;">Grafik Perbandingan Biaya Tahunan (Miliar Rp)</h2>
-  <canvas id="tcoChart"></canvas>
+  <h2 style="text-align:center;">Grafik 1: TCO 5 Tahun (Miliar Rp)</h2>
+  <canvas id="tco5Year"></canvas>
 
-  <p style="text-align:center;">
-    <button onclick="downloadChart()">Download Grafik sebagai PNG</button>
-  </p>
+  <h2 style="text-align:center;">Grafik 2: Zoom-In Tahun 1 (2026) – Bukti Rp 1,095M 2025 = Pondasi Hybrid</h2>
+  <canvas id="year1Zoom"></canvas>
+
+  <p style="text-align:center;"><button onclick="downloadAll()">Download Semua Grafik sebagai PNG</button></p>
 
   <div class="footer">
-    Update: 22 November 2025 • Berdasarkan harga real DCI Indonesia, NTT, AWS/Alibaba Cloud region Jakarta<br>
-    Break-even Hybrid vs On-Premise: bulan ke-18–22
+    Update: 23 November 2025 • Dokumen Mei–Okt 2025 (Rp 1,095 miliar) sudah menjadi aset Hybrid<br>
+    Rekomendasi: Lanjut Hybrid mulai Januari 2026 → tambahan anggaran hanya ~Rp 900 juta untuk cloud + DR
   </div>
 </div>
 
 <script>
-  const ctx = document.getElementById('tcoChart').getContext('2d');
-  const chart = new Chart(ctx, {
+  // Grafik 1: 5 Tahun
+  const ctx1 = document.getElementById('tco5Year').getContext('2d');
+  new Chart(ctx1, {
     type: 'bar',
     data: {
       labels: ['Tahun 1', 'Tahun 2', 'Tahun 3', 'Tahun 4', 'Tahun 5'],
       datasets: [
-        { label: 'On-Premise Only', data: [5.610, 3.651, 4.275, 4.053, 5.749], backgroundColor: 'rgba(239, 68, 68, 0.7)', borderColor: '#b91c1c' },
-        { label: 'Hybrid (Rekomendasi)', data: [1.940, 1.514, 1.716, 1.948, 2.516], backgroundColor: 'rgba(34, 197, 94, 0.7)', borderColor: '#166534' }
+        { label: 'On-Premise Only', data: [5.61, 3.65, 4.28, 4.05, 5.75], backgroundColor: 'rgba(239,68,68,0.7)' },
+        { label: 'Hybrid (Rekomendasi)', data: [1.94, 1.51, 1.72, 1.95, 2.52], backgroundColor: 'rgba(34,197,94,0.7)' }
       ]
     },
+    options: { responsive: true, plugins: { title: { display: true, text: 'Hybrid Hemat Rp 13,7 Miliar dalam 5 Tahun' }}}
+  });
+
+  // Grafik 2: Zoom Tahun 1 + Rp 1,095M 2025
+  const ctx2 = document.getElementById('year1Zoom').getContext('2d');
+  new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Mei–Okt 2025 (Dokumen)', 'Tahun 1 On-Prem Only (2026)', 'Tahun 1 Hybrid (2026)'],
+      datasets: [{
+        label: 'Biaya (Miliar Rp)',
+        data: [1.095, 5.61, 1.94],
+        backgroundColor: ['#f59e0b', '#ef4444', '#10b981']
+      }]
+    },
     options: {
-      responsive: true,
       plugins: {
-        title: { display: true, text: 'Hybrid Hemat Rp 13,7 Miliar dalam 5 Tahun', font: {size: 18} },
-        datalabels: { anchor: 'end', align: 'top', formatter: (v) => v + ' jt', font: {weight: 'bold'} }
-      },
-      scales: { y: { beginAtZero: true, ticks: { callback: v => v + ' jt' } } }
+        title: { display: true, text: 'Tahun 1: Rp 1,095M 2025 sudah = Pondasi Hybrid → Hanya Tambah Rp 845 Juta untuk Cloud & DR' },
+        datalabels: { anchor: 'end', align: 'top', formatter: v => v.toFixed(3) + ' M', font: {weight: 'bold'} }
+      }
     },
     plugins: [ChartDataLabels]
   });
 
-  // Garis kumulatif
-  chart.data.datasets.push(
-    { label: 'Kumulatif On-Premise', data: [5.610,9.261,13.536,17.589,23.338], type:'line', borderColor:'#b91c1c', tension:0.2, borderWidth:3 },
-    { label: 'Kumulatif Hybrid', data: [1.940,3.454,5.170,7.118,9.634], type:'line', borderColor:'#166534', tension:0.2, borderWidth:3 }
-  );
-  chart.update();
-
-  function downloadChart() {
-    const a = document.createElement('a');
-    a.href = chart.toBase64Image();
-    a.download = 'TCO_Perikanan_Hybrid_vs_OnPrem_5Tahun.png';
-    a.click();
+  function downloadAll() {
+    ['tco5Year', 'year1Zoom'].forEach((id, i) => {
+      const a = document.createElement('a');
+      a.href = document.getElementById(id).toDataURL();
+      a.download = `TCO_Sangihe_${i===0?'5Tahun':'Tahun1'}_Nov2025.png`;
+      a.click();
+    });
   }
 </script>
 </body>
